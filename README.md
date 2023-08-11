@@ -47,7 +47,7 @@ also to send a license expiration notification process you can send post to **lo
 
 you can use this command:
 ```bash
-curl --location --request POST 'http://localhost:8001/notifications/license_expiration/'
+curl --location --request POST 'http://localhost:8080/notifications/license_expiration/'
 ```
 
 
