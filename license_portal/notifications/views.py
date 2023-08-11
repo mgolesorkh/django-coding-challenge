@@ -9,7 +9,7 @@ from notifications.tasks import send_licence_expiration_notification_task
 
 
 class LicenseExpirationNotificationView(APIView):
-    def post(self, **kwargs) -> HttpResponse:
+    def post(self, *args, **kwargs) -> HttpResponse:
         send_licence_expiration_notification_task.apply_async()
         return Response(status=200)
 
