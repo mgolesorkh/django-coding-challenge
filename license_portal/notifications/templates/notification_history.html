@@ -1,0 +1,32 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}
+  Notification History
+{% endblock %}
+
+{% block content %}
+<h2>License Expiration Notification</h2>
+  <table style="width:100%">
+    <thead>
+      <th>id</th>
+      <th>notification type</th>
+      <th>notification time</th>
+      <th>total count</th>
+      <th>sent count</th>
+      <th>notification time</th>
+      <th>items</th>
+    </thead>
+    <tbody>
+      {% for notification in notifications %}
+        <tr>
+          <td>{{ notification.id }}</td>
+          <td>{{ notification.get_notification_type_display }}</td>
+          <td>{{ notification.created_datetime }}</td>
+          <td>{{ notification.total_count }}</td>
+          <td>{{ notification.sent_count }}</td>
+          <td><a href="{%url "notification_items" notification_id=notification.id%}" target="_blank">click to check</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

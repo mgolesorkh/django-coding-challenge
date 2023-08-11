@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <br>
+
+        <h2>License Expiration Notification Alart</h2>
+        <h3>please check list below</h3>
+
+
+
+
+        <h2>Licenses list:</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>license id</th>
+                    <th>license type</th>
+                    <th>package</th>
+                    <th>expiration date</th>
+                    <th>poc name</th>
+                    <th>poc email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for row in licenses %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.license_type}}</td>
+                        <td>{{row.package}}</td>
+                        <td>{{row.expiration_datetime}}</td>
+                        <td>{{client__poc_contact_name}}</td>
+                        <td>{{client__poc_contact_email}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
