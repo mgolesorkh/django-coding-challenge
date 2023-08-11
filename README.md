@@ -23,7 +23,7 @@ this project is written in python and django 4.2.
 To run project using :
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 project will be accessible from **localhost:8080**

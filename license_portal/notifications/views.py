@@ -15,18 +15,20 @@ class LicenseExpirationNotificationView(APIView):
 
 
 class HomeView(View):
-    def get(self, **kwargs) -> HttpResponse:
+    def get(self, *args, **kwargs) -> HttpResponse:
         return redirect("notification_history")
 
 
 class NotificationHistoryView(View):
-    def get(self, request: HttpRequest, **kwargs) -> HttpResponse:
+    def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
         context = {"notifications": Notification.objects.all()}
         return render(request, "notification_history.html", context=context)
 
 
 class NotificationItemsView(View):
-    def get(self, request: HttpRequest, notification_id: int, **kwargs) -> HttpResponse:
+    def get(
+        self, request: HttpRequest, notification_id: int, *args, **kwargs
+    ) -> HttpResponse:
         notification = get_object_or_404(Notification, id=notification_id)
         context = {"notification": notification}
 
@@ -35,7 +37,7 @@ class NotificationItemsView(View):
 
 class NotificationItemBodyView(View):
     def get(
-        self, request: HttpRequest, notification_item_id: int, **kwargs
+        self, request: HttpRequest, notification_item_id: int, *args, **kwargs
     ) -> HttpResponse:
         notification_item = get_object_or_404(NotificationItem, id=notification_item_id)
         context = {"content": notification_item.body}
